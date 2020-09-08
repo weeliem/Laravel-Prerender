@@ -197,11 +197,11 @@ class PrerenderMiddleware
             $headers['X-Prerender-Token'] = $this->prerenderToken;
         }
     
-        $protocol = $request->isSecure() ? 'https' : 'http';
+        $protocol = $_SERVER['HTTP_X_FORWARDED_PROTO'];
     
         try {
             // Return the Guzzle Response
-        $host = $request->getHost();
+            $host = $request->getHost();
             $path = $request->Path();
             // Fix "//" 404 error
             if ($path == "/") {
