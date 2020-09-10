@@ -197,11 +197,13 @@ class PrerenderMiddleware
             $headers['X-Prerender-Token'] = $this->prerenderToken;
         }
 
-        if(isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] != ''){
-            $protocol = $_SERVER['HTTP_X_FORWARDED_PROTO'];
-        }else{
-            $protocol = 'https';
-        }
+        // if(isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] != ''){
+        //     $protocol = $_SERVER['HTTP_X_FORWARDED_PROTO'];
+        // }else{
+        //     $protocol = 'https';
+        // }
+
+        $protocol = 'https';
     
         try {
             // Return the Guzzle Response
